@@ -59,5 +59,302 @@ namespace CRM.WebBlazor.LocalizationResource {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Login.
+        /// </summary>
+        public static string button_login {
+            get {
+                return ResourceManager.GetString("button-login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Register.
+        /// </summary>
+        public static string button_register {
+            get {
+                return ResourceManager.GetString("button-register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Reset.
+        /// </summary>
+        public static string button_reset {
+            get {
+                return ResourceManager.GetString("button-reset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Female.
+        /// </summary>
+        public static string gender_Female {
+            get {
+                return ResourceManager.GetString("gender-Female", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Male.
+        /// </summary>
+        public static string gender_Male {
+            get {
+                return ResourceManager.GetString("gender-Male", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Other.
+        /// </summary>
+        public static string gender_Other {
+            get {
+                return ResourceManager.GetString("gender-Other", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Confirm Password.
+        /// </summary>
+        public static string input_confirm_password {
+            get {
+                return ResourceManager.GetString("input-confirm-password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Date of Birth.
+        /// </summary>
+        public static string input_dateofbirth {
+            get {
+                return ResourceManager.GetString("input-dateofbirth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Email.
+        /// </summary>
+        public static string input_email {
+            get {
+                return ResourceManager.GetString("input-email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu First name.
+        /// </summary>
+        public static string input_firstname {
+            get {
+                return ResourceManager.GetString("input-firstname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Gender.
+        /// </summary>
+        public static string input_gender {
+            get {
+                return ResourceManager.GetString("input-gender", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Last name.
+        /// </summary>
+        public static string input_lastname {
+            get {
+                return ResourceManager.GetString("input-lastname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Password.
+        /// </summary>
+        public static string input_password {
+            get {
+                return ResourceManager.GetString("input-password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Errors.
+        /// </summary>
+        public static string label_errors {
+            get {
+                return ResourceManager.GetString("label-errors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Passwords must match!.
+        /// </summary>
+        public static string message_confirm_password_match {
+            get {
+                return ResourceManager.GetString("message-confirm-password-match", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Confirm password is required..
+        /// </summary>
+        public static string message_confirm_password_required {
+            get {
+                return ResourceManager.GetString("message-confirm-password-required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Email already exists..
+        /// </summary>
+        public static string message_email_exists {
+            get {
+                return ResourceManager.GetString("message-email-exists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Email format is incorrect..
+        /// </summary>
+        public static string message_email_format {
+            get {
+                return ResourceManager.GetString("message-email-format", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Email is required!.
+        /// </summary>
+        public static string message_email_required {
+            get {
+                return ResourceManager.GetString("message-email-required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu First name is required!.
+        /// </summary>
+        public static string message_firstname_required {
+            get {
+                return ResourceManager.GetString("message-firstname-required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Invalid login attempt..
+        /// </summary>
+        public static string message_invalid_login {
+            get {
+                return ResourceManager.GetString("message-invalid-login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Invalid user data..
+        /// </summary>
+        public static string message_invalid_user_data {
+            get {
+                return ResourceManager.GetString("message-invalid-user-data", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Last name is required!.
+        /// </summary>
+        public static string message_lastname_required {
+            get {
+                return ResourceManager.GetString("message-lastname-required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Login is not allowed..
+        /// </summary>
+        public static string message_login_not_allowed {
+            get {
+                return ResourceManager.GetString("message-login-not-allowed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Password is required!.
+        /// </summary>
+        public static string message_password_required {
+            get {
+                return ResourceManager.GetString("message-password-required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Password must contain at least 8 characters, one upper case, one lower case, one symbol and one digit..
+        /// </summary>
+        public static string message_password_validation {
+            get {
+                return ResourceManager.GetString("message-password-validation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Password is too weak..
+        /// </summary>
+        public static string message_password_weak {
+            get {
+                return ResourceManager.GetString("message-password-weak", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Two-Factor authentication is required..
+        /// </summary>
+        public static string message_two_factor_required {
+            get {
+                return ResourceManager.GetString("message-two-factor-required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu An uknown error has occured..
+        /// </summary>
+        public static string message_unknown_error {
+            get {
+                return ResourceManager.GetString("message-unknown-error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu User is locked out..
+        /// </summary>
+        public static string message_user_locked_out {
+            get {
+                return ResourceManager.GetString("message-user-locked-out", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Login.
+        /// </summary>
+        public static string title_login {
+            get {
+                return ResourceManager.GetString("title-login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Register.
+        /// </summary>
+        public static string title_register {
+            get {
+                return ResourceManager.GetString("title-register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Hello, welcome to my ASP.NET page..
+        /// </summary>
+        public static string WelcomeMessage {
+            get {
+                return ResourceManager.GetString("WelcomeMessage", resourceCulture);
+            }
+        }
     }
 }
