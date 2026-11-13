@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace CRM.WebBlazor.Validator
 {
-    public partial class PasswordAttibute : ValidationAttribute
+    public partial class PasswordAttribute : ValidationAttribute
     {
         private static readonly Regex _regex = PasswordRegex();
         //Regular expression cheking if password is at elast 8 letters long, one upepr case, one number and one symbol
