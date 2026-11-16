@@ -8,6 +8,26 @@ namespace CRM.WebBlazor.Service
 {
     public class AuthenticationService(HttpClient http, IStringLocalizer<Resource> localizer) : IAuthenticationService
     {
+        public async Task<ResponseModel<bool>> LoginAsync(ApplicationUserLoginInputModel model)
+        {
+            var response = await http.PostAsJsonAsync("Identity/Authentication/login", model);
+
+            if (response.IsSuccessStatusCode)
+                return new ResponseModel<bool> { IsSuccess = true };
+
+            return await HandleErrorResponse(response);
+        }
+
+        public async Task<ResponseModel<bool>> RegisterAsync(ApplicationUserRegisterInputModel model)
+        {
+            var response = await http.PostAsJsonAsync("Identity/Authentication/register", model);
+
+            if (response.IsSuccessStatusCode)
+                return new ResponseModel<bool> { IsSuccess = true };
+
+            return await HandleErrorResponse(response);
+        }
+
         public async Task<ResponseModel<bool>> ConfirmEmailAsync(ApplicationUserConfirmEmailInputModel model)
         {
             var response = await http.PostAsJsonAsync("Identity/Authentication/confirm-email", model);
@@ -38,6 +58,25 @@ namespace CRM.WebBlazor.Service
             return await HandleErrorResponse(response);
         }
 
+        public async Task<ResponseModel<bool>> ForgotPasswordAsync(ApplicationUserForgotPasswordInputModel model)
+        {
+            var response = await http.PostAsJsonAsync("Identity/Authentication/forgot-password", model);
+
+            if (response.IsSuccessStatusCode)
+                return new ResponseModel<bool> { IsSuccess = true };
+
+            return await HandleErrorResponse(response);
+        }
+
+        public async Task<ResponseModel<bool>> ResetPasswordAsync(ApplicationUserForgotPasswordInputModel model)
+        {
+            var response = await http.PostAsJsonAsync("Identity/Authentication/reset-password", model);
+
+            if (response.IsSuccessStatusCode)
+                return new ResponseModel<bool> { IsSuccess = true };
+
+            return await HandleErrorResponse(response);
+        }
 
         private async Task<ResponseModel<bool>> HandleErrorResponse(HttpResponseMessage response)
         {

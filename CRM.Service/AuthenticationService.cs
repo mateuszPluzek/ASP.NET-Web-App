@@ -20,12 +20,46 @@ namespace CRM.Service
         {
             throw new NotImplementedException();
         }
-        public Task<bool> ForgotPasswordAsync(ApplicationUserRegisterInputModel model)
+        public async Task<ResponseModel<bool>> ForgotPasswordAsync(ApplicationUserForgotPasswordInputModel model)
         {
-            throw new NotImplementedException();
+            ArgumentNullException.ThrowIfNull(model.Email);
+            var user = await userManager.FindByEmailAsync(model.Email);
+            if (user == null)
+            {
+                return new ResponseModel<bool>
+                {
+                    IsSuccess = false,
+                    Message = "USer not found",
+                    Data = false
+                };
+            }
+            user.VerificationCode = GenerateVerificationCode();
+            var result = await userManager.UpdateAsync(user);
+
+            if (!result.Succeeded)
+            {
+                return new ResponseModel<bool>
+                {
+                    IsSuccess = false,
+                    Message = "Failed to save verification code"
+                };
+            }
+            // send email with code
+            model.Code = user.VerificationCode.ToString();
+            model.FullName = $"{user.FirstName} {user.LastName}";
+            await SendEmailConfirmationCodeAsync(model);
+
+            return new ResponseModel<bool>
+            {
+                IsSuccess = true,
+                Message = "Succesfully sent verification code"
+            };
         }
         public async Task<ResponseModel<bool>> LoginAsync(ApplicationUserLoginInputModel model)
         {
+            ArgumentNullException.ThrowIfNull(model.Email);
+            ArgumentNullException.ThrowIfNull(model.Password);
+
             var result = await signInManager.PasswordSignInAsync(model.Email, model.Password, false, false);
 
             if (result.Succeeded)
@@ -140,6 +174,9 @@ namespace CRM.Service
 
         public async Task<ResponseModel<bool>> ConfirmEmailVerifyCodeAsync(ApplicationUserConfirmEmailInputModel model)
         {
+            ArgumentNullException.ThrowIfNull(model.Email);
+            ArgumentNullException.ThrowIfNull(model.Code);
+
             var user = await userManager.FindByEmailAsync(model.Email);
             if(user == null)
             {
@@ -173,9 +210,41 @@ namespace CRM.Service
             }
         }
 
-        public Task<bool> ResetPasswordAsync(ApplicationUserRegisterInputModel model)
+        public async Task<ResponseModel<bool>> ResetPasswordAsync(ApplicationUserForgotPasswordInputModel model)
         {
-            throw new NotImplementedException();
+            ArgumentNullException.ThrowIfNull(model.Email);
+            ArgumentNullException.ThrowIfNull(model.Code);
+            ArgumentNullException.ThrowIfNull(model.Password);
+
+            var user = await userManager.FindByEmailAsync(model.Email);
+            if (user == null)
+            {
+                return new ResponseModel<bool>
+                {
+                    IsSuccess = false,
+                    Message = "User not found"
+                };
+            }
+
+            bool isCodeValid = user.VerificationCode != null && user.VerificationCode.ToString() == model.Code;
+            if (isCodeValid)
+            {
+                var token = await userManager.GeneratePasswordResetTokenAsync(user);
+                var result = await userManager.ResetPasswordAsync(user, token, model.Password);
+                return new ResponseModel<bool>
+                {
+                    IsSuccess = result.Succeeded,
+                    Message = result.Succeeded ? "Password reset successful" : "Unable to reset password"
+                };
+            }
+            else
+            {
+                return new ResponseModel<bool>
+                {
+                    IsSuccess = false,
+                    Message = "Invalid confirmation code"
+                };
+            }
         }
 
         private short GenerateVerificationCode()
@@ -184,7 +253,7 @@ namespace CRM.Service
             return (short)random.Next(1000, 9999);
         }
 
-        private async Task SendEmailConfirmationCodeAsync(ApplicationUserConfirmEmailInputModel model)
+        private async Task SendEmailConfirmationCodeAsync(ApplicationUserVerificationBaseInputModel model)
         {
             MailMessage email = new();
             email.To.Add(model.Email);

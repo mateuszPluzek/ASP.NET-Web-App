@@ -51,18 +51,18 @@ namespace CRM.API.Areas.Identity
 
         [HttpPost("forgot-password")]
         [DisplayName("Forgot Password")]
-        public async Task<IActionResult> ForgotPassword([FromBody] ApplicationUserRegisterInputModel model)
+        public async Task<IActionResult> ForgotPassword([FromBody] ApplicationUserForgotPasswordInputModel model)
         {
             var response = await _authenticationService.ForgotPasswordAsync(model);
-            return response ? Ok(response) : StatusCode(500);
+            return response.IsSuccess ? Ok() : BadRequest(response);
         }
 
         [HttpPost("reset-password")]
         [DisplayName("Reset Password")]
-        public async Task<IActionResult> ResetPassword([FromBody] ApplicationUserRegisterInputModel model)
+        public async Task<IActionResult> ResetPassword([FromBody] ApplicationUserForgotPasswordInputModel model)
         {
             var response = await _authenticationService.ResetPasswordAsync(model);
-            return response ? Ok(response) : StatusCode(500);
+            return response.IsSuccess ? Ok() : BadRequest(response);
         }
 
         [HttpPost("change-password")]
