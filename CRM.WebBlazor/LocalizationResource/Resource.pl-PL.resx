@@ -216,4 +216,70 @@
   <data name="WelcomeMessage" xml:space="preserve">
     <value>Witaj na mojej stronie stworzonej z pomocą ASP.NET.</value>
   </data>
+  <data name="title-confirm-email" xml:space="preserve">
+    <value>Potwierdź Email.</value>
+  </data>
+  <data name="message-user-not-found" xml:space="preserve">
+    <value>Użytkownik nie został znaleziony!</value>
+  </data>
+  <data name="input-verification-code" xml:space="preserve">
+    <value>Kod potwierdzający</value>
+  </data>
+  <data name="message-code-four-digit" xml:space="preserve">
+    <value>Kod musi posiadać dokładnie 4 cyfry.</value>
+  </data>
+  <data name="message-verification-code-required" xml:space="preserve">
+    <value>Kod weryfikacyjny jest wymagany!</value>
+  </data>
+  <data name="info-verify-code-sent" xml:space="preserve">
+    <value>Kod weryfikacyjny został wysłany na twoją pocztę. Proszę wpisać go bez zamykania tej strony.</value>
+  </data>
+  <data name="button-activate" xml:space="preserve">
+    <value>Aktywuj</value>
+  </data>
+  <data name="button-verify" xml:space="preserve">
+    <value>Potwierdź</value>
+  </data>
+  <data name="message-invalid-confirmation-code" xml:space="preserve">
+    <value>Nieprawidłowy kod!</value>
+  </data>
+  <data name="link-confirm-email" xml:space="preserve">
+    <value>Potwierdź Email</value>
+  </data>
+  <data name="link-forget-password" xml:space="preserve">
+    <value>Przypomnij hasło</value>
+  </data>
+  <data name="message-failed-save-verification-code" xml:space="preserve">
+    <value>Nie udało się zapisać kodu weryfikującego.</value>
+  </data>
+  <data name="message-email-confirmation-failed" xml:space="preserve">
+    <value>Potwierdzenie poczty nie powiodło się!\</value>
+  </data>
+  <data name="message-email-already-confirmed" xml:space="preserve">
+    <value>Email został już potwierdzony!</value>
+  </data>
+  <data name="email-template-confirm-email-raw-text" xml:space="preserve">
+    <value>{FullName}, Proszę potwierdzić swój email poniższym 4-cyfrowym kodem: {Code}.</value>
+  </data>
+  <data name="button-forget-password" xml:space="preserve">
+    <value>Zapomniałeś Hasła?</value>
+  </data>
+  <data name="button-change-password" xml:space="preserve">
+    <value>Zmień Hasło</value>
+  </data>
+  <data name="email-template-forgot-password-raw-text" xml:space="preserve">
+    <value>{FullName}, Aby zresetować hasło, proszę użyć poniższego 4-cyfrowego kodu: {Code}.</value>
+  </data>
+  <data name="message-password-change-failed" xml:space="preserve">
+    <value>Zmiana hasła nie powiodła się.</value>
+  </data>
+  <data name="title-forgot-password" xml:space="preserve">
+    <value>Przypomnij hasło</value>
+  </data>
+  <data name="message-unable-reset-password" xml:space="preserve">
+    <value>Nie udało się zresetować hasła.</value>
+  </data>
+  <data name="button-reset-password" xml:space="preserve">
+    <value>Zresetuj Hasło</value>
+  </data>
 </root>

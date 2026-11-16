@@ -61,6 +61,33 @@ namespace CRM.WebBlazor.LocalizationResource {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Activate.
+        /// </summary>
+        public static string button_activate {
+            get {
+                return ResourceManager.GetString("button-activate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Change Password.
+        /// </summary>
+        public static string button_change_password {
+            get {
+                return ResourceManager.GetString("button-change-password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Forgot Password?.
+        /// </summary>
+        public static string button_forget_password {
+            get {
+                return ResourceManager.GetString("button-forget-password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Login.
         /// </summary>
         public static string button_login {
@@ -88,6 +115,42 @@ namespace CRM.WebBlazor.LocalizationResource {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Reset Password.
+        /// </summary>
+        public static string button_reset_password {
+            get {
+                return ResourceManager.GetString("button-reset-password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Verify.
+        /// </summary>
+        public static string button_verify {
+            get {
+                return ResourceManager.GetString("button-verify", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Dear {FullName}, Please Verify Your Email Address by this 4-digit code: {Code}..
+        /// </summary>
+        public static string email_template_confirm_email_raw_text {
+            get {
+                return ResourceManager.GetString("email-template-confirm-email-raw-text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Dear {FullName}, To reset your password, please use the following 4-digit code: {Code}..
+        /// </summary>
+        public static string email_template_forgot_password_raw_text {
+            get {
+                return ResourceManager.GetString("email-template-forgot-password-raw-text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Female.
         /// </summary>
         public static string gender_Female {
@@ -111,6 +174,15 @@ namespace CRM.WebBlazor.LocalizationResource {
         public static string gender_Other {
             get {
                 return ResourceManager.GetString("gender-Other", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu The verification code has been sent to your email, please take that code and enter it in the box without closing this page..
+        /// </summary>
+        public static string info_verify_code_sent {
+            get {
+                return ResourceManager.GetString("info-verify-code-sent", resourceCulture);
             }
         }
         
@@ -178,11 +250,47 @@ namespace CRM.WebBlazor.LocalizationResource {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Verification code.
+        /// </summary>
+        public static string input_verification_code {
+            get {
+                return ResourceManager.GetString("input-verification-code", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Errors.
         /// </summary>
         public static string label_errors {
             get {
                 return ResourceManager.GetString("label-errors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Confirm Email.
+        /// </summary>
+        public static string link_confirm_email {
+            get {
+                return ResourceManager.GetString("link-confirm-email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Forget Password.
+        /// </summary>
+        public static string link_forget_password {
+            get {
+                return ResourceManager.GetString("link-forget-password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Code must contain exactly 4 digits..
+        /// </summary>
+        public static string message_code_four_digit {
+            get {
+                return ResourceManager.GetString("message-code-four-digit", resourceCulture);
             }
         }
         
@@ -201,6 +309,24 @@ namespace CRM.WebBlazor.LocalizationResource {
         public static string message_confirm_password_required {
             get {
                 return ResourceManager.GetString("message-confirm-password-required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Email already confirmed!.
+        /// </summary>
+        public static string message_email_already_confirmed {
+            get {
+                return ResourceManager.GetString("message-email-already-confirmed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Email confirmation failed!.
+        /// </summary>
+        public static string message_email_confirmation_failed {
+            get {
+                return ResourceManager.GetString("message-email-confirmation-failed", resourceCulture);
             }
         }
         
@@ -232,11 +358,29 @@ namespace CRM.WebBlazor.LocalizationResource {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Failed to save verification code..
+        /// </summary>
+        public static string message_failed_save_verification_code {
+            get {
+                return ResourceManager.GetString("message-failed-save-verification-code", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu First name is required!.
         /// </summary>
         public static string message_firstname_required {
             get {
                 return ResourceManager.GetString("message-firstname-required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Invalid code!.
+        /// </summary>
+        public static string message_invalid_confirmation_code {
+            get {
+                return ResourceManager.GetString("message-invalid-confirmation-code", resourceCulture);
             }
         }
         
@@ -277,6 +421,15 @@ namespace CRM.WebBlazor.LocalizationResource {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Password change failed..
+        /// </summary>
+        public static string message_password_change_failed {
+            get {
+                return ResourceManager.GetString("message-password-change-failed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Password is required!.
         /// </summary>
         public static string message_password_required {
@@ -313,6 +466,15 @@ namespace CRM.WebBlazor.LocalizationResource {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Unable to reset password..
+        /// </summary>
+        public static string message_unable_reset_password {
+            get {
+                return ResourceManager.GetString("message-unable-reset-password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu An uknown error has occured..
         /// </summary>
         public static string message_unknown_error {
@@ -327,6 +489,42 @@ namespace CRM.WebBlazor.LocalizationResource {
         public static string message_user_locked_out {
             get {
                 return ResourceManager.GetString("message-user-locked-out", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu User not found!.
+        /// </summary>
+        public static string message_user_not_found {
+            get {
+                return ResourceManager.GetString("message-user-not-found", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Verification code is required!.
+        /// </summary>
+        public static string message_verification_code_required {
+            get {
+                return ResourceManager.GetString("message-verification-code-required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Confirm Email..
+        /// </summary>
+        public static string title_confirm_email {
+            get {
+                return ResourceManager.GetString("title-confirm-email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Forgot Password.
+        /// </summary>
+        public static string title_forgot_password {
+            get {
+                return ResourceManager.GetString("title-forgot-password", resourceCulture);
             }
         }
         
