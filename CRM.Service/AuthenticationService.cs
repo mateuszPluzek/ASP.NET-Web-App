@@ -14,7 +14,7 @@ namespace CRM.Service
         UserManager<ApplicationUser> userManager,
         SignInManager<ApplicationUser> signInManager,
         IApplicationEmailSender applicationEmailSender
-        ): IAuthenticationService
+        ) : IAuthenticationService
     {
         public Task<bool> ChangePasswordAsync(ApplicationUserRegisterInputModel model)
         {
@@ -127,6 +127,8 @@ namespace CRM.Service
                 };
             }
             // send email with code
+            model.Code = user.VerificationCode.ToString();
+            model.FullName = $"{user.FirstName} {user.LastName}";
             await SendEmailConfirmationCodeAsync(model);
 
             return new ResponseModel<bool>
@@ -134,6 +136,41 @@ namespace CRM.Service
                 IsSuccess = true,
                 Message = "Succesfully sent verification code"
             };
+        }
+
+        public async Task<ResponseModel<bool>> ConfirmEmailVerifyCodeAsync(ApplicationUserConfirmEmailInputModel model)
+        {
+            var user = await userManager.FindByEmailAsync(model.Email);
+            if(user == null)
+            {
+                return new ResponseModel<bool>
+                {
+                    IsSuccess = false,
+                    Message = "User not found"
+                };
+            }
+
+            model.FullName = $"{user.FirstName} {user.LastName}";
+            bool isCodeValid = user.VerificationCode != null && user.VerificationCode.ToString() == model.Code;
+            if(isCodeValid)
+            {
+                user.EmailConfirmed = true;
+                user.Activity = true;
+                var result = await userManager.UpdateAsync(user);
+                return new ResponseModel<bool>
+                {
+                    IsSuccess = result.Succeeded,
+                    Message = result.Succeeded ? "Email confirmed successfully" : "email confirmation failed"
+                };
+            }
+            else
+            {
+                return new ResponseModel<bool>
+                {
+                    IsSuccess = false,
+                    Message = "Invalid confirmation code"
+                };
+            }
         }
 
         public Task<bool> ResetPasswordAsync(ApplicationUserRegisterInputModel model)
