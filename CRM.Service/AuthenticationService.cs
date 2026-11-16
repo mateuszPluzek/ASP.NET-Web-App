@@ -2,14 +2,18 @@
 using CRM.Model.IdentityModels;
 using CRM.Model.InputModels;
 using CRM.Service.IService;
+using CRM.Utility.IUtility;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using System.Net.Mail;
+using System.Net.Mime;
 
 namespace CRM.Service
 {
     public class AuthenticationService(
         UserManager<ApplicationUser> userManager,
-        SignInManager<ApplicationUser> signInManager
+        SignInManager<ApplicationUser> signInManager,
+        IApplicationEmailSender applicationEmailSender
         ): IAuthenticationService
     {
         public Task<bool> ChangePasswordAsync(ApplicationUserRegisterInputModel model)
@@ -89,9 +93,71 @@ namespace CRM.Service
                 Data = false
             };
         }
+        public async Task<ResponseModel<bool>> ConfirmEmailAsync(ApplicationUserConfirmEmailInputModel model)
+        {
+            ArgumentNullException.ThrowIfNull(model.Email);
+            var user = await userManager.FindByEmailAsync(model.Email);
+            if(user == null)
+            {
+                return new ResponseModel<bool>
+                {
+                    IsSuccess = false,
+                    Message = "USer not found",
+                    Data = false
+                };
+            }
+            if (user.EmailConfirmed)
+            {
+                return new ResponseModel<bool>
+                {
+                    IsSuccess = false,
+                    Message = "Email already confirmed",
+                    Data = false
+                };
+            }
+            user.VerificationCode = GenerateVerificationCode();
+            var result = await userManager.UpdateAsync(user);
+
+            if(!result.Succeeded)
+            {
+                return new ResponseModel<bool>
+                {
+                    IsSuccess = false,
+                    Message = "Failed to save verification code"
+                };
+            }
+            // send email with code
+            await SendEmailConfirmationCodeAsync(model);
+
+            return new ResponseModel<bool>
+            {
+                IsSuccess = true,
+                Message = "Succesfully sent verification code"
+            };
+        }
+
         public Task<bool> ResetPasswordAsync(ApplicationUserRegisterInputModel model)
         {
             throw new NotImplementedException();
+        }
+
+        private short GenerateVerificationCode()
+        {
+            Random random = new Random();
+            return (short)random.Next(1000, 9999);
+        }
+
+        private async Task SendEmailConfirmationCodeAsync(ApplicationUserConfirmEmailInputModel model)
+        {
+            MailMessage email = new();
+            email.To.Add(model.Email);
+            email.Subject = "ASPNET app";
+
+            var emailContent = model.EmailTemplate.Replace("{FullName}", model.FullName).Replace("{Code}", model.Code);
+            var alternateView = AlternateView.CreateAlternateViewFromString(emailContent, null, MediaTypeNames.Text.Html);
+            email.AlternateViews.Add(alternateView);
+            await applicationEmailSender.SendEmailAsync(email);
+
         }
     }
 }
