@@ -282,4 +282,46 @@
   <data name="button-reset-password" xml:space="preserve">
     <value>Zresetuj Hasło</value>
   </data>
+  <data name="button-update" xml:space="preserve">
+    <value>Zaktualizuj</value>
+  </data>
+  <data name="title-user-profile" xml:space="preserve">
+    <value>Profil użytkownika</value>
+  </data>
+  <data name="tab-details" xml:space="preserve">
+    <value>Szczegóły</value>
+  </data>
+  <data name="tab-edit" xml:space="preserve">
+    <value>Edycja</value>
+  </data>
+  <data name="tab-change-password" xml:space="preserve">
+    <value>Zmień Hasło</value>
+  </data>
+  <data name="input-current-password" xml:space="preserve">
+    <value>Obecne Hasło</value>
+  </data>
+  <data name="label-full-name" xml:space="preserve">
+    <value>Imię i Nazwisko</value>
+  </data>
+  <data name="label-date-of-register" xml:space="preserve">
+    <value>Data rejestracji</value>
+  </data>
+  <data name="label-status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="status-active" xml:space="preserve">
+    <value>Aktywny</value>
+  </data>
+  <data name="status-inactive" xml:space="preserve">
+    <value>Nieaktywny</value>
+  </data>
+  <data name="label-description" xml:space="preserve">
+    <value>Opis</value>
+  </data>
+  <data name="message-profile-updated-successfully" xml:space="preserve">
+    <value>Profil zaktualizowany poprawnie!</value>
+  </data>
+  <data name="message-password-changed-successfully" xml:space="preserve">
+    <value>Hasło zmieniono pomyślnie!</value>
+  </data>
 </root>

@@ -124,6 +124,15 @@ namespace CRM.WebBlazor.LocalizationResource {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Update.
+        /// </summary>
+        public static string button_update {
+            get {
+                return ResourceManager.GetString("button-update", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Verify.
         /// </summary>
         public static string button_verify {
@@ -196,6 +205,15 @@ namespace CRM.WebBlazor.LocalizationResource {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Current Password.
+        /// </summary>
+        public static string input_current_password {
+            get {
+                return ResourceManager.GetString("input-current-password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Date of Birth.
         /// </summary>
         public static string input_dateofbirth {
@@ -259,11 +277,47 @@ namespace CRM.WebBlazor.LocalizationResource {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Date of register.
+        /// </summary>
+        public static string label_date_of_register {
+            get {
+                return ResourceManager.GetString("label-date-of-register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Description.
+        /// </summary>
+        public static string label_description {
+            get {
+                return ResourceManager.GetString("label-description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Errors.
         /// </summary>
         public static string label_errors {
             get {
                 return ResourceManager.GetString("label-errors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Full Name.
+        /// </summary>
+        public static string label_full_name {
+            get {
+                return ResourceManager.GetString("label-full-name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Status.
+        /// </summary>
+        public static string label_status {
+            get {
+                return ResourceManager.GetString("label-status", resourceCulture);
             }
         }
         
@@ -430,6 +484,15 @@ namespace CRM.WebBlazor.LocalizationResource {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Password changed successfully!.
+        /// </summary>
+        public static string message_password_changed_successfully {
+            get {
+                return ResourceManager.GetString("message-password-changed-successfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Password is required!.
         /// </summary>
         public static string message_password_required {
@@ -453,6 +516,15 @@ namespace CRM.WebBlazor.LocalizationResource {
         public static string message_password_weak {
             get {
                 return ResourceManager.GetString("message-password-weak", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Profile updated successfully!.
+        /// </summary>
+        public static string message_profile_updated_successfully {
+            get {
+                return ResourceManager.GetString("message-profile-updated-successfully", resourceCulture);
             }
         }
         
@@ -511,6 +583,51 @@ namespace CRM.WebBlazor.LocalizationResource {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Active.
+        /// </summary>
+        public static string status_active {
+            get {
+                return ResourceManager.GetString("status-active", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Inactive.
+        /// </summary>
+        public static string status_inactive {
+            get {
+                return ResourceManager.GetString("status-inactive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Change Password.
+        /// </summary>
+        public static string tab_change_password {
+            get {
+                return ResourceManager.GetString("tab-change-password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Details.
+        /// </summary>
+        public static string tab_details {
+            get {
+                return ResourceManager.GetString("tab-details", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Edit.
+        /// </summary>
+        public static string tab_edit {
+            get {
+                return ResourceManager.GetString("tab-edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Confirm Email..
         /// </summary>
         public static string title_confirm_email {
@@ -543,6 +660,15 @@ namespace CRM.WebBlazor.LocalizationResource {
         public static string title_register {
             get {
                 return ResourceManager.GetString("title-register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu User Profile.
+        /// </summary>
+        public static string title_user_profile {
+            get {
+                return ResourceManager.GetString("title-user-profile", resourceCulture);
             }
         }
         

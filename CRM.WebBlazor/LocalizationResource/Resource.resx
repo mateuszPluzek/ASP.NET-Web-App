@@ -282,4 +282,46 @@
   <data name="button-reset-password" xml:space="preserve">
     <value>Reset Password</value>
   </data>
+  <data name="button-update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="title-user-profile" xml:space="preserve">
+    <value>User Profile</value>
+  </data>
+  <data name="tab-details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="tab-edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="tab-change-password" xml:space="preserve">
+    <value>Change Password</value>
+  </data>
+  <data name="input-current-password" xml:space="preserve">
+    <value>Current Password</value>
+  </data>
+  <data name="label-full-name" xml:space="preserve">
+    <value>Full Name</value>
+  </data>
+  <data name="label-date-of-register" xml:space="preserve">
+    <value>Date of register</value>
+  </data>
+  <data name="label-status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="status-active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="status-inactive" xml:space="preserve">
+    <value>Inactive</value>
+  </data>
+  <data name="label-description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="message-profile-updated-successfully" xml:space="preserve">
+    <value>Profile updated successfully!</value>
+  </data>
+  <data name="message-password-changed-successfully" xml:space="preserve">
+    <value>Password changed successfully!</value>
+  </data>
 </root>
