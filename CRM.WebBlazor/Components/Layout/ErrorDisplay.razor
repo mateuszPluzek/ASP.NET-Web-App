@@ -11,4 +11,7 @@
 @code {
     [Parameter, EditorRequired]
     public string[] Errors { get; set; } = Array.Empty<string>();
+
+    [Parameter, EditorRequired]
+    public int Elevation { get; set; } = 1;
 }
