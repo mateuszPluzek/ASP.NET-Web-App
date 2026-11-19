@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CRM.Utility.IUtility
 {
-    internal interface ITokenHandler
+    public interface ITokenHandler
     {
     }
 }
