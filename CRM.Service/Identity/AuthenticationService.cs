@@ -1,19 +1,22 @@
 ﻿using CRM.Model.ApplicationModels;
 using CRM.Model.IdentityModels;
 using CRM.Model.InputModels;
-using CRM.Service.IService;
+using CRM.Model.ViewModels;
+using CRM.Utility;
 using CRM.Utility.IUtility;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System.Net.Mail;
 using System.Net.Mime;
+using System.Security.Claims;
 
-namespace CRM.Service
+namespace CRM.Service.Identity
 {
     public class AuthenticationService(
         UserManager<ApplicationUser> userManager,
         SignInManager<ApplicationUser> signInManager,
-        IApplicationEmailSender applicationEmailSender
+        IApplicationEmailSender applicationEmailSender,
+        ITokenHandler tokenHandler
         ) : IAuthenticationService
     {
         public Task<bool> ChangePasswordAsync(ApplicationUserRegisterInputModel model)
@@ -29,7 +32,7 @@ namespace CRM.Service
                 return new ResponseModel<bool>
                 {
                     IsSuccess = false,
-                    Message = "USer not found",
+                    Message = "User not found",
                     Data = false
                 };
             }
@@ -55,7 +58,7 @@ namespace CRM.Service
                 Message = "Succesfully sent verification code"
             };
         }
-        public async Task<ResponseModel<bool>> LoginAsync(ApplicationUserLoginInputModel model)
+        public async Task<ResponseModel<ApplicationUserProfileViewModel>> LoginAsync(ApplicationUserLoginInputModel model)
         {
             ArgumentNullException.ThrowIfNull(model.Email);
             ArgumentNullException.ThrowIfNull(model.Password);
@@ -64,11 +67,19 @@ namespace CRM.Service
 
             if (result.Succeeded)
             {
-                return new ResponseModel<bool>
+                var user = await userManager.FindByEmailAsync(model.Email); //login was successful so we know the user exists
+                var claims = new List<Claim> 
+                { 
+                    new(TokenParameters.UserId, user?.Id!),
+                    new(TokenParameters.Email, user?.Email!)
+                };
+                var token = tokenHandler.GenerateJwtToken(claims);
+
+                return new ResponseModel<ApplicationUserProfileViewModel>
                 {
                     IsSuccess = true,
                     Message = "Login succesful",
-                    Data = true
+                    Data = new ApplicationUserProfileViewModel(user!) { Token = token}
                 };
             }
             string errorMessage = result.IsLockedOut ? "User is locked out." :
@@ -76,11 +87,11 @@ namespace CRM.Service
                                   result.RequiresTwoFactor ? "Two factor authentication is required." :
                                   "invalid login attempt.";
 
-            return new ResponseModel<bool>
+            return new ResponseModel<ApplicationUserProfileViewModel>
             {
                 IsSuccess = false,
                 Message = errorMessage,
-                Data = false
+                Data = null
             };
         }
         public Task<bool> RefreshTokenAsync(ApplicationUserRegisterInputModel model)
