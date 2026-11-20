@@ -1,7 +1,8 @@
 ## CRM .NET template app
 ## Table Of contents
 - [Introduction](#introduction)
-- 
+- [Installation](#installation)
+- [Features](#features)
 ## Introduction
 This app was developed as a learning project using ASP.NET Core with Blazor for the front end. It is a template web application that allows users to create accounts. When logged in, users can change their profile information.
 
@@ -11,3 +12,6 @@ The website supports two languages: Polish and English (US) (en-US).
 
 This application does not include any domain-specific features; it only provides the essential functionality that most web apps need. It can serve as a starting point for any website that requires user registration backed by a database.
 
+## Installation
+
+## Features
