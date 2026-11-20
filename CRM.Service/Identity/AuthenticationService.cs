@@ -5,7 +5,6 @@ using CRM.Model.ViewModels;
 using CRM.Utility;
 using CRM.Utility.IUtility;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System.Net.Mail;
 using System.Net.Mime;
 using System.Security.Claims;
@@ -19,10 +18,6 @@ namespace CRM.Service.Identity
         ITokenHandler tokenHandler
         ) : IAuthenticationService
     {
-        public Task<bool> ChangePasswordAsync(ApplicationUserRegisterInputModel model)
-        {
-            throw new NotImplementedException();
-        }
         public async Task<ResponseModel<bool>> ForgotPasswordAsync(ApplicationUserForgotPasswordInputModel model)
         {
             ArgumentNullException.ThrowIfNull(model.Email);

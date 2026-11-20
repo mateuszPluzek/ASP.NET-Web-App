@@ -12,7 +12,6 @@ namespace CRM.Service.Identity
         Task<ResponseModel<bool>> ConfirmEmailVerifyCodeAsync(ApplicationUserConfirmEmailInputModel model);
         Task<ResponseModel<bool>> ForgotPasswordAsync(ApplicationUserForgotPasswordInputModel model);
         Task<ResponseModel<bool>> ResetPasswordAsync(ApplicationUserForgotPasswordInputModel model);
-        Task<bool> ChangePasswordAsync(ApplicationUserRegisterInputModel model);
         Task<bool> RefreshTokenAsync(ApplicationUserRegisterInputModel model);
     }
 }

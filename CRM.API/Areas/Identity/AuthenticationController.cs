@@ -65,14 +65,6 @@ namespace CRM.API.Areas.Identity
             return response.IsSuccess ? Ok() : BadRequest(response);
         }
 
-        [HttpPost("change-password")]
-        [DisplayName("Change Password")]
-        public async Task<IActionResult> ChangePassword([FromBody] ApplicationUserRegisterInputModel model)
-        {
-            var response = await _authenticationService.ChangePasswordAsync(model);
-            return response ? Ok(response) : StatusCode(500);
-        }
-
         [HttpPost("refresh-token")]
         [DisplayName("Refresh Token")]
         public async Task<IActionResult> RefreshToken([FromBody] ApplicationUserRegisterInputModel model)
