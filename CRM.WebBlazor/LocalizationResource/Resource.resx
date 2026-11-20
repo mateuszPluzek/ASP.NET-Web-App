@@ -138,7 +138,7 @@
   <data name="input-confirm-password" xml:space="preserve">
     <value>Confirm Password</value>
   </data>
-  <data name="input-dateofbirth" xml:space="preserve">
+  <data name="input-date-of-birth" xml:space="preserve">
     <value>Date of Birth</value>
   </data>
   <data name="input-email" xml:space="preserve">
@@ -323,5 +323,8 @@
   </data>
   <data name="message-password-changed-successfully" xml:space="preserve">
     <value>Password changed successfully!</value>
+  </data>
+  <data name="label-date-of-birth" xml:space="preserve">
+    <value>Date of Birth</value>
   </data>
 </root>

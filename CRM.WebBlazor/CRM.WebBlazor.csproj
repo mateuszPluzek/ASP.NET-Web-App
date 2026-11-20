@@ -30,4 +30,8 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\images\user-profile-images\avatar_base.jpg" />
+  </ItemGroup>
+
 </Project>

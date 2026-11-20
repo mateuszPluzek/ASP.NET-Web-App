@@ -35,7 +35,7 @@ namespace CRM.WebBlazor.Service.Identity
         }
 
 
-        public async Task<ResponseModel<bool>> UpdateUserProfileAsync(ApplicationUserChangePasswordInputModel model)
+        public async Task<ResponseModel<bool>> ChangePasswordAsync(ApplicationUserChangePasswordInputModel model)
         {
             var response = await http.PostAsJsonAsync("Identity/User/change-password", model);
 

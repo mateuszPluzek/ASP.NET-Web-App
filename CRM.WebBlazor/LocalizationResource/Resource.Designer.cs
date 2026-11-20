@@ -216,9 +216,9 @@ namespace CRM.WebBlazor.LocalizationResource {
         /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Date of Birth.
         /// </summary>
-        public static string input_dateofbirth {
+        public static string input_date_of_birth {
             get {
-                return ResourceManager.GetString("input-dateofbirth", resourceCulture);
+                return ResourceManager.GetString("input-date-of-birth", resourceCulture);
             }
         }
         
@@ -273,6 +273,15 @@ namespace CRM.WebBlazor.LocalizationResource {
         public static string input_verification_code {
             get {
                 return ResourceManager.GetString("input-verification-code", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Date of Birth.
+        /// </summary>
+        public static string label_date_of_birth {
+            get {
+                return ResourceManager.GetString("label-date-of-birth", resourceCulture);
             }
         }
         

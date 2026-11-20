@@ -1,7 +1,10 @@
 ﻿@inherits LayoutComponentBase
 @inject IJSRuntime jsRuntime
+@inject NavigationManager navManager
+@inject ISnackbar snackbar
+
 @* Required *@
-<MudThemeProvider @bind-IsDarkMode="@_isDarkMode" Theme = "_theme"/>
+<MudThemeProvider @bind-IsDarkMode="@_isDarkMode" Theme="@_theme" />
 <MudPopoverProvider />
 
 @* Needed for dialogs *@
@@ -13,14 +16,31 @@
 <MudLayout>
     <MudAppBar>
         <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
-        CRM Application
+        .NET Application
         <MudSpacer />
         <CultureDropDown />
-		<MudIconButton Icon="@_currentIcon" Color="Color.Inherit" Edge="Edge.End" OnClick="UpdateDarkMode" />
+        <MudIconButton Icon="@_currentIcon" Color="Color.Inherit" Edge="Edge.End" OnClick="UpdateDarkMode" />
+
+        @* 🔽 LOGOUT 🔽 *@
+        <MudMenu AnchorOrigin="Origin.BottomRight" TransformOrigin="Origin.TopRight">
+            <ActivatorContent>
+                <MudIconButton Icon="@Icons.Material.Filled.AccountCircle"
+                               Color="Color.Inherit"
+                               Edge="Edge.End" />
+            </ActivatorContent>
+            <ChildContent>
+                <MudMenuItem Icon="@Icons.Material.Filled.Logout" OnClick="Logout">
+                    Logout
+                </MudMenuItem>
+            </ChildContent>
+        </MudMenu>
+        @* 🔼 LOGOUT 🔼 *@
     </MudAppBar>
+
     <MudDrawer @bind-Open="@_drawerOpen">
-        <NavMenu/>
+        <NavMenu />
     </MudDrawer>
+
     <MudMainContent>
         @Body
     </MudMainContent>
@@ -30,26 +50,27 @@
     bool _drawerOpen = true;
     bool _isDarkMode = false;
     string _currentIcon = Icons.Material.Filled.Brightness4;
+
     MudTheme _theme = new MudTheme()
     {
-            PaletteLight = new PaletteLight()
-            {
-                Primary = Colors.DeepPurple.Default,
-                AppbarBackground = Colors.DeepPurple.Default,
-            },
-            PaletteDark = new PaletteDark()
-            {
-                Primary = Colors.DeepPurple.Lighten2,
-                AppbarBackground = Colors.DeepPurple.Lighten2,
-            }
+        PaletteLight = new PaletteLight()
+        {
+            Primary = Colors.DeepPurple.Default,
+            AppbarBackground = Colors.DeepPurple.Default,
+        },
+        PaletteDark = new PaletteDark()
+        {
+            Primary = Colors.DeepPurple.Lighten2,
+            AppbarBackground = Colors.DeepPurple.Lighten2,
+        }
     };
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        if(firstRender)
+        if (firstRender)
         {
             var darkMode = await jsRuntime.InvokeAsync<string>("localStorage.getItem", "dark-mode");
-            if(!string.IsNullOrEmpty(darkMode))
+            if (!string.IsNullOrEmpty(darkMode))
             {
                 _isDarkMode = bool.Parse(darkMode);
                 _currentIcon = _isDarkMode ? Icons.Material.Filled.Brightness4 : Icons.Material.Filled.Brightness7;
@@ -58,15 +79,21 @@
         }
     }
 
-    void DrawerToggle()
-    {
-        _drawerOpen = !_drawerOpen;
-    }
+    void DrawerToggle() => _drawerOpen = !_drawerOpen;
 
     private async Task UpdateDarkMode()
     {
         _isDarkMode = !_isDarkMode;
         _currentIcon = _isDarkMode ? Icons.Material.Filled.Brightness4 : Icons.Material.Filled.Brightness7;
         await jsRuntime.InvokeVoidAsync("localStorage.setItem", "dark-mode", _isDarkMode.ToString());
+    }
+
+    private async Task Logout()
+    {
+        await jsRuntime.InvokeVoidAsync("localStorage.removeItem", "token");
+        await jsRuntime.InvokeVoidAsync("localStorage.removeItem", "user");
+
+        snackbar.Add("You have been logged out.", Severity.Info);
+        navManager.NavigateTo("/identity/login", forceLoad: true);
     }
 }
