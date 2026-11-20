@@ -3,6 +3,7 @@
 - [Introduction](#introduction)
 - [Installation](#installation)
 - [Features](#features)
+- [Future content](#futurecontent)
 ## Introduction
 This app was developed as a learning project using ASP.NET Core with Blazor for the front end. It is a template web application that allows users to create accounts. When logged in, users can change their profile information.
 
@@ -133,3 +134,50 @@ dotnet user-secrets set "Email:EnableSsl" "true"
 > Do not commit real passwords or API keys to the repository. Use user secrets for local development and environment variables (or a secrets manager) in production.
 > 
 ## Features
+
+### Swagger support
+
+Built-in Swagger support, allowing for easy API testing with JWT authorization.
+
+<img width="1464" height="757" alt="Swagger UI" src="https://github.com/user-attachments/assets/707eb869-c60e-47b1-8cfd-783c210840c2" />
+
+### Localization
+
+An easy-to-extend localization resource, allowing support for additional languages to be added.
+
+<img width="1000" height="509" alt="Localization" src="https://github.com/user-attachments/assets/6e79d9a8-17dc-42b6-a62b-8e1a9fb976ac" />
+
+### Simple UI
+
+Allows testing of language support and dark/light theme.
+
+<img width="1920" height="226" alt="UI theme toggle" src="https://github.com/user-attachments/assets/d5b996e3-7e0f-407c-8da8-f4cba3b3dee5" />
+
+### User profile
+
+A page that allows the user to view and change their information. It also supports uploading a custom profile image.
+
+<img width="1705" height="713" alt="User profile page" src="https://github.com/user-attachments/assets/6fa40e10-d30e-4307-b9f8-afe88fb91d3d" />
+
+### Developer-friendly error display
+
+Errors intended for the end user are displayed in a dedicated box, making it easier to test the app during development.
+
+<img width="1690" height="250" alt="Error display" src="https://github.com/user-attachments/assets/cc30c04a-aed2-454d-befd-59467bc14e6c" />
+
+### Email verification
+
+Changes to your account, as well as activating it while you are not logged in, require you to enter a verification code sent to your email.
+
+<img width="710" height="368" alt="Email verification" src="https://github.com/user-attachments/assets/1f44ae9a-1495-4d52-b828-fb1873c7618f" />
+
+## Future Content
+
+Planned updates:
+
+- JWT refresh tokens
+- Refreshing user info after changes (currently, user data is stored locally after logging in)
+- Error logging to the database
+- Allowing the user to change their profile description
+- Searching other users
+- Admin panel
